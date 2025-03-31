@@ -6,6 +6,9 @@ import { Button } from "antd";
 
 import { Principal as DashboardLayout } from "@/layout/dashboard";
 import { ReactElement } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { decrement, increment } from "@/store/slices/counterSlice";
+import { RootState } from "@/store";
 
 
 const geistSans = Geist({
@@ -19,6 +22,8 @@ const geistMono = Geist_Mono({
 });
 
 export default function Home() {
+  const count = useSelector((state: RootState) => state.counter.value);
+  const dispatch = useDispatch();
   return (
     <>
       <Head>
@@ -27,15 +32,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Button type="primary">Button</Button>
       <div
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
       
-       
-        <Button type="primary">Button</Button>
+          <h1>Contador: {count}</h1>
+          <button onClick={() => dispatch(increment())}>+</button>
+          <button onClick={() => dispatch(decrement())}>-</button>
       </div>
     </>
   );
 }
 
-Home.getLayout = (page:ReactElement) => <DashboardLayout>{page}</DashboardLayout>;
+Home.getLayout = (page:ReactElement) => <DashboardLayout title="home">{page}</DashboardLayout>;
