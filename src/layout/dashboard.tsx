@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { useState } from 'react';
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
@@ -6,20 +6,14 @@ import {
     ProductOutlined,
 } from '@ant-design/icons';
 
-interface Item {
-    key: string;
-    // o el tipo adecuado para `key`
-    // otros campos que puedas tener
-}
 
-import { Button, Layout, Menu, MenuProps, theme } from 'antd';
+
+import { Button, Layout, Menu, theme } from 'antd';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { DashboardLayoutProps, Item, MenuItem } from '@/utils/interface';
 const { Header, Content, Sider } = Layout;
-type MenuItem = Exclude<NonNullable<MenuProps["items"]>[number], null | undefined> & {
-    path: string;
-    label: string;
-};
+
 const items: MenuItem[] = [
     {
         key: 0,
@@ -35,10 +29,7 @@ const items: MenuItem[] = [
 
     },
 ]
-interface DashboardLayoutProps {
-    title: string;  // Título que se pasará como prop
-    children: ReactElement;  // El contenido que se pasará como prop (la página)
-  }
+
 
 export const Principal = ({ children, title }: DashboardLayoutProps) => {
     const router = useRouter();

@@ -62,9 +62,7 @@ export default function TablaDinamica() {
         `https://api.escuelajs.co/api/v1/products?offset=${(currentPage - 1) * 10}&limit=10`
     );
 
-
     
-
     const filteredData = products?.filter((product) => {
         const searchLower = searchTerm.toLowerCase();
         return (
@@ -116,6 +114,7 @@ export default function TablaDinamica() {
                         pageSize: 10,
                         total: totalCount,
                         onChange: handlePaginationChange,
+                        showSizeChanger: false, 
                     }}
                 />
             </div>
