@@ -74,24 +74,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
         open={isModal}
         centered
         onCancel={handleCancel}
+        width='fit-content'
         footer={null}
-
-
       >
-        <div style={{padding:10}}>
-          <img src={data.images[0]} alt={data.title} style={{ width: '100%' }} />
-          <h3>{data.title}</h3>
-          <ul>
-            <li><strong>Price:</strong> ${data.price}</li>
-            <li><strong>Description:</strong> {data.description}</li>
-            <li><strong>Created At:</strong> {data.creationAt}</li>
-            <li><strong>Updated At:</strong> {data.updatedAt}</li>
-          </ul>
+        <div className='cardo' style={{padding:10}}>
+          <img src={data.images[0]} alt={data.title} style={{ width: '30%' }} />
+          <div style={{width :'50%', marginLeft: 45}}>
+            <h3>{data.title}</h3>
+            <ul>
+              <li><strong>Precio:</strong> ${data.price} MXN</li>
+              <li><strong>Descripcion:</strong> {data.description}</li>
+              <li><strong>Creacion:</strong> {data.creationAt}</li>
+              <li><strong>Actualizacoin:</strong> {data.updatedAt}</li>
+            </ul>
+
+          </div>
 
         </div>
         <div className='centerFlex'>
-          <Button type="primary" onClick={handleCancel}>
-            Close
+          <Button type="primary" color='red'  onClick={handleCancel}>
+            Cerrar
           </Button>
         </div>
       </Modal>

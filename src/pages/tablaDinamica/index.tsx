@@ -106,11 +106,12 @@ export default function TablaDinamica() {
             >
                 {loading ? <Loading /> : fetched ? "" : ""}
                 {error && <p style={{ color: "red" }}>Error: {error}</p>}
+                <Typography.Title level={2}>Lista de Productos</Typography.Title>
                 <div style={{width:300, height:200}}>
                     <Carousel  images={images}/>
 
                 </div>
-                <Typography.Title level={2}>Lista de Productos</Typography.Title>
+               
                 <Space style={{ marginBottom: 16 }}>
                     <Input.Search
                         placeholder="Buscar por nombre..."

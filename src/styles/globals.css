@@ -101,3 +101,11 @@ a {
 ::-webkit-scrollbar-thumb:hover{
 	background-color: #909090;
 }
+
+
+.cardo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
