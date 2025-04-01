@@ -50,7 +50,7 @@ export const Principal = ({ children, title }: DashboardLayoutProps) => {
 
     const getValues = (item: Item) => {
         const path = items.filter(element => element.key == item?.key);
-        console.log(item, path)
+
         
         const selectedKey = path[0]?.key !== undefined ? `${path[0]?.key}` : "";
         setSelectedKeys(selectedKey);

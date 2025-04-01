@@ -95,7 +95,6 @@ export default function TablaDinamica() {
                     array.push(element.images[0])
                 })
                 setImages(array)
-                console.log(response, array)
             })
             .catch(error => console.error("Error al obtener productos:", error));
     }, [currentPage]);

@@ -36,9 +36,9 @@ export default function Productos() {
 
   useEffect(() => {
     fetchData()
-      .then((response) => {
+      .then(() => {
         setFetched(true)
-        console.log(response)
+  
       })
       .catch(error => console.error("Error al obtener productos:", error));
   }, []);
