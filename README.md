@@ -27,4 +27,4 @@ Y eso fue todo.
 
 ## Deploy en Netlify
 
-Si no quieres instalar nada, [aqui](https://pruebaedyfe.netlify.app/productos) es el enlace para la prueba con deply en netlify.
+Si no quieres instalar nada, [aqui](https://pruebaedyfe.netlify.app/) es el enlace para la prueba con deply en netlify.
