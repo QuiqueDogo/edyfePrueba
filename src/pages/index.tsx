@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { useRouter } from "next/router";
 import { ReactElement, useEffect } from "react";
 import styles from "@/styles/Home.module.css";
-import { Flex } from "antd";
 
 
 const geistSans = Geist({

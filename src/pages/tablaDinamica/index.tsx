@@ -91,7 +91,7 @@ export default function TablaDinamica() {
             .then((response) => {
                 setFetched(true)
                 let array:string [] = []
-                const images = response.map(element => {
+                response.forEach(element => {
                     array.push(element.images[0])
                 })
                 setImages(array)

@@ -51,7 +51,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
 
   return (
     <div>
-      {/* {console.log(data)} */}
       <Card
         hoverable
         cover={<img alt={data.title} src={data.images[0]} />}

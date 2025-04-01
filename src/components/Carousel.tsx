@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { Carousel, Button } from "antd";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { Carousel } from "antd";
 import { CarouselProps } from "@/utils/interface";
 
 
@@ -18,7 +16,6 @@ export default function ({ images }: CarouselProps) {
 
   return (
         <Carousel autoplay autoplaySpeed={5000}>
-           
                 {images.map((image, index) => (
                     <div key={index}>
                         <img
