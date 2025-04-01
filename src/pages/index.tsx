@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { useRouter } from "next/router";
 import { ReactElement, useEffect } from "react";
 import styles from "@/styles/Home.module.css";
+import { Flex } from "antd";
 
 
 const geistSans = Geist({
@@ -16,10 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 
+
+
 export default function Home() {
   const router = useRouter();
   useEffect(() => {
-    // Redirigir automáticamente a /dashboard cuando se accede a la raíz
     router.push('/tablaDinamica');
   }, [router]);
   return (
@@ -28,6 +30,7 @@ export default function Home() {
       <div
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
+       
       
       </div>
     </>

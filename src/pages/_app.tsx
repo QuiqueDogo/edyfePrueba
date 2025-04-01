@@ -7,6 +7,7 @@ import theme from '@/theme/themeConfig';
 import { NextPage } from 'next';
 import { Provider } from 'react-redux';
 import { store } from "@/store";
+import dynamic from 'next/dynamic';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -15,6 +16,8 @@ type NextPageWithLayout = NextPage & {
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
+
+// const ConfigProvider = dynamic(() => import('antd/es/config-provider'), { ssr: false });
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? ((page) => page);

@@ -5,10 +5,13 @@ import styles from "@/styles/Home.module.css";
 import useFetch from '@/utils/fetch';
 import { Input, Space, Table, Tag, Typography, } from 'antd';
 import { Product } from '@/utils/interface';
-import { ColumnsType } from 'antd/es/table';
+import { ColumnsType } from 'antd/lib/table';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/store';
 import { setSearchTerm } from '@/store/slices/filterSlice';
+import { keygen } from '@/utils/utlis';
+import Carousel from '@/components/Carousel';
+import Loading from '@/components/Loading';
 
 
 
@@ -62,7 +65,7 @@ export default function TablaDinamica() {
         `https://api.escuelajs.co/api/v1/products?offset=${(currentPage - 1) * 10}&limit=10`
     );
 
-    
+
     const filteredData = products?.filter((product) => {
         const searchLower = searchTerm.toLowerCase();
         return (
@@ -76,24 +79,37 @@ export default function TablaDinamica() {
         setCurrentPage(page);
     };
 
+    // const images = [
+    //     "https://source.unsplash.com/600x400/?nature",
+    //     "https://source.unsplash.com/600x400/?city",
+    //     "https://source.unsplash.com/600x400/?ocean",
+    //   ];
+      
+    const [images, setImages] = useState<string[]>([])
     useEffect(() => {
         fetchData()
-            .then(() => setFetched(true))
+            .then((response) => {
+                setFetched(true)
+                let array:string [] = []
+                const images = response.map(element => {
+                    array.push(element.images[0])
+                })
+                setImages(array)
+                console.log(response, array)
+            })
             .catch(error => console.error("Error al obtener productos:", error));
     }, [currentPage]);
-
-    //   const filteredData = products?.filter(product =>
-    //     product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    //     product.price ==  parseInt(searchTerm)) ||
-    //     product.category.toLowerCase().includes(searchTerm.toLowerCase()) 
-    //   ) || [];
     return (
         <>
             <div
                 className={`${styles.page} ${geistSans.variable} ${geistMono.variable} w-100`}
             >
-                {loading ? "Cargando..." : fetched ? "Productos Cargados" : "Cargar Productos"}
+                {loading ? <Loading /> : fetched ? "Productos Cargados" : "Cargar Productos"}
                 {error && <p style={{ color: "red" }}>Error: {error}</p>}
+                <div style={{width:300, height:200}}>
+                    <Carousel  images={images}/>
+
+                </div>
                 <Typography.Title level={2}>Lista de Productos</Typography.Title>
                 <Space style={{ marginBottom: 16 }}>
                     <Input.Search
@@ -109,6 +125,7 @@ export default function TablaDinamica() {
                     dataSource={filteredData || []}
                     columns={columns}
                     loading={loading}
+                    key={keygen('123','xd')}
                     pagination={{
                         current: currentPage,
                         pageSize: 10,

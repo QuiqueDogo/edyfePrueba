@@ -1,12 +1,18 @@
-import { MenuProps } from "antd";
+import { MenuProps, TableProps } from "antd";
 import { ReactElement } from "react";
 
 export interface Product {
     id: number;
     title: string;
-    price: number;
+    price: number ;
     category: { name: string };
-    images: string[];
+    images: string;
+    image: string;
+    slug: string;
+    description: string;
+    creationAt: string;
+    updatedAt: string;
+    // data: ProductCardProps;
   }
 
 
@@ -24,3 +30,19 @@ export type MenuItem = Exclude<NonNullable<MenuProps["items"]>[number], null | u
     path: string;
     label: string;
 };
+
+export interface CarouselProps {
+  images: string[];
+}
+
+export interface ProductCardProps {
+  data: {
+      title: string;
+      price: string;
+      image: string;
+      slug: string;
+      description: string;
+      creationAt: string;
+      updatedAt:string;
+  }
+}
