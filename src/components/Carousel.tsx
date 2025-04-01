@@ -12,7 +12,7 @@ const contentStyle: React.CSSProperties = {
     objectFit: 'cover'
   };
 
-export default function ({ images }: CarouselProps) {
+  export default function CarouselComp({ images }: CarouselProps) {
 
   return (
         <Carousel autoplay autoplaySpeed={5000}>

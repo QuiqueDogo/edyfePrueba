@@ -7,7 +7,6 @@ import theme from '@/theme/themeConfig';
 import { NextPage } from 'next';
 import { Provider } from 'react-redux';
 import { store } from "@/store";
-import dynamic from 'next/dynamic';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
