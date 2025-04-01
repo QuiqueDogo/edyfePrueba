@@ -54,14 +54,15 @@ const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
       <Card
         hoverable
         cover={<img alt={data.title} src={data.images[0]} />}
-        style={{ width: 240, margin: 8 }}
+        style={{ width: 240, margin: 8, cursor: 'pointer' }}
+        onClick={showModal} 
+
       >
-        <Card.Meta title={data.title} description={`$${data.price}`} />
+        <Card.Meta title={data.title} description={`$${data.price} MXN`} />
         <Button
           type="dashed"
           icon={<InfoCircleOutlined />}
           style={{ marginTop: '10px' }}
-          onClick={showModal} 
         >
           Ver Mas Detalles
         </Button>
