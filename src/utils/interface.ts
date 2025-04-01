@@ -1,4 +1,4 @@
-import { MenuProps, TableProps } from "antd";
+import { MenuProps } from "antd";
 import { ReactElement } from "react";
 
 export interface Product {

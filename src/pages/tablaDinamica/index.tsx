@@ -90,7 +90,7 @@ export default function TablaDinamica() {
         fetchData()
             .then((response) => {
                 setFetched(true)
-                let array:string [] = []
+                const array:string [] = []
                 response.forEach(element => {
                     array.push(element.images[0])
                 })
