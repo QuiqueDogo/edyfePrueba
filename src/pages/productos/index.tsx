@@ -48,7 +48,7 @@ export default function Productos() {
       <div
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable} flex flex-row`}
       >
-        {loading ? <Loading /> : fetched ? "Productos Cargados" : "Cargar Productos"}
+        {loading ? <Loading /> : fetched ? "" : ""}
         {error && <p style={{ color: "red" }}>Error: {error}</p>}
         <Flex gap="large" align="start" vertical>
           <Flex style={boxStyle} wrap justify='space-around' align='center'>

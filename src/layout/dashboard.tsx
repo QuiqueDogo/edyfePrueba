@@ -30,6 +30,17 @@ const items: MenuItem[] = [
     },
 ]
 
+const siderStyle: React.CSSProperties = {
+    overflow: 'auto',
+    height: '100vh',
+    position: 'sticky',
+    insetInlineStart: 0,
+    top: 0,
+    bottom: 0,
+    scrollbarWidth: 'thin',
+    scrollbarGutter: 'stable',
+  };
+
 
 export const Principal = ({ children, title }: DashboardLayoutProps) => {
     const router = useRouter();
@@ -58,8 +69,8 @@ export const Principal = ({ children, title }: DashboardLayoutProps) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Layout>
-                <Sider trigger={null} collapsible collapsed={collapsed}>
+            <Layout style={siderStyle}>
+                <Sider  style={siderStyle} trigger={null} collapsible collapsed={collapsed}>
                     <div className="demo-logo-vertical" />
                     <Menu
                         theme="dark"
@@ -70,7 +81,9 @@ export const Principal = ({ children, title }: DashboardLayoutProps) => {
                         items={items}
                     />
                 </Sider>
-                <Layout>
+                <Layout style={{
+        height:'100vh ',
+      }}>
                     <Header style={{ padding: 0, background: colorBgContainer }}>
                         <Button
                             type="text"
@@ -90,6 +103,8 @@ export const Principal = ({ children, title }: DashboardLayoutProps) => {
                             margin: '24px 16px',
                             padding: 24,
                             minHeight: 280,
+                            overflow: 'hidden',
+                            overflowY: 'auto',
                             background: colorBgContainer,
                             borderRadius: borderRadiusLG,
                         }}

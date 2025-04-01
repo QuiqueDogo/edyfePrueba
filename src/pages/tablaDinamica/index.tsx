@@ -104,7 +104,7 @@ export default function TablaDinamica() {
             <div
                 className={`${styles.page} ${geistSans.variable} ${geistMono.variable} w-100`}
             >
-                {loading ? <Loading /> : fetched ? "Productos Cargados" : "Cargar Productos"}
+                {loading ? <Loading /> : fetched ? "" : ""}
                 {error && <p style={{ color: "red" }}>Error: {error}</p>}
                 <div style={{width:300, height:200}}>
                     <Carousel  images={images}/>
